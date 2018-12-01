@@ -182,7 +182,7 @@
                     var lines = this.result.split('\n');
                     for(var line = 0; line < lines.length; line++){
                         let arr = lines[line].split('|');
-                        $.get(`./createMatch.php?red1=${arr[5]}&red2=${arr[6]}&blue1=${arr[8]}&blue2=${arr[9]}&matchNumber=${line+1}&eventId=${competition.Id}`, function(result){});
+                        $.get(`./createMatch.php?red1=${arr[1]}&red2=${arr[3]}&blue1=${arr[5]}&blue2=${arr[7]}&matchNumber=${line+1}&eventId=${competition.Id}`, function(result){});
                             $('#status')[0].innerText = `Match ${line+1} Created!`;
                     }
                 };

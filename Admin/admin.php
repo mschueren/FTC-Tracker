@@ -126,7 +126,7 @@
                     <button class="button select teams" onclick="loadCompetition()"> Select Competition </button>
                     <button class="button select teams" onclick="openCompetition()"> Open Competition </button>
                 </div>
-            
+
                 <div class="row info">
                     <div id="competitionTeams" class="teams">
                         <?php
@@ -159,13 +159,13 @@
         </div>
 
         <script>
-            $('#header').load('../header.php');
+            $('#header').load('header.php');
 
             document.getElementById('fileToUpload').onchange = function(){
                 let fileName = document.getElementById('fileToUpload').files[0].name;
                 $('#status')[0].innerText = `${fileName} Selected`;
             };
-            
+
             function uploadFile(){
                 var file = document.getElementById('fileToUpload').files[0];
                 let competition = JSON.parse($('#competitions option:selected').val());
@@ -182,7 +182,7 @@
                     var lines = this.result.split('\n');
                     for(var line = 0; line < lines.length; line++){
                         let arr = lines[line].split('|');
-                        $.get(`./createMatch.php?red1=${arr[5]}&red2=${arr[6]}&blue1=${arr[8]}&blue2=${arr[9]}&matchNumber=${line+1}&eventId=${competition.Id}`, function(result){});
+                        $.get(`./createMatch.php?red1=${arr[1]}&red2=${arr[3]}&blue1=${arr[5]}&blue2=${arr[7]}&matchNumber=${line+1}&eventId=${competition.Id}`, function(result){});
                             $('#status')[0].innerText = `Match ${line+1} Created!`;
                     }
                 };
@@ -223,7 +223,7 @@
                 let date = $("#date").val();
                 let eventName = $("#eventName").val();
                 let eventId = null;
-                
+
                 if (teams.length > 0 && eventName !== '' && date !== '') {
                     $.get(`./createEvent.php?date=${date}&eventName=${eventName}`, function(result){
                         eventId = result.Id;
@@ -282,7 +282,7 @@
             function openCompetition() {
                 let event = JSON.parse($('#competitions option:selected').val())
                 let eventId = event.Id;
-                
+
                 $.get(`./setOpenCompetition.php?eventId=${eventId}`, function(result){
                     window.location.reload();
                 });

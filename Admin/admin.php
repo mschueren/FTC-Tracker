@@ -24,7 +24,7 @@
         $dbName = $_SESSION['dbName'];
 
         $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
-        $results = $conn->query("SELECT * FROM Team");
+        $results = $conn->query("SELECT * FROM Team ORDER BY TeamNumber");
 
         $teams = array();
         while($rs = $results->fetch_array(MYSQLI_ASSOC)) {

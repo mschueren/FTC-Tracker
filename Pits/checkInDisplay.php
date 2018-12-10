@@ -113,15 +113,15 @@
 </html>
 
 <script>
-/*
+
     function scrollTable (){
         let tableRows = $('tr');
         let index = tableRows.length - 18;
-        let y = tableRows[index].offsetTop + 50;
-        $('.tableBody').animate({scrollTop: y}, 10000);
-    }*/
+        let y = tableRows[index].offsetTop + 100;// was adding 50
+        $('.tableBody').animate({scrollTop: y}, 8000);
+    }
 
-    //setTimeout(scrollTable, 2000);
-    setTimeout(function(){location.reload(); }, 5000);
+    setTimeout(scrollTable, 2000);
+    setTimeout(function(){location.reload(); }, 10000);
 
 </script>

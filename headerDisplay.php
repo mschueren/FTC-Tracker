@@ -2,7 +2,7 @@
     session_start();
 ?>
 <head>
-    <script src="jquery-google-api.js"></script>
+    <script src="../jquery-google-api.js"></script>
 </head>
 <header>
     <div class="header-left">

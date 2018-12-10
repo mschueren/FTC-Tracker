@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="../jquery-google-api.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
     <?php
         session_start();
         if ($_SESSION['timeout'] + 600 < time()) {
@@ -24,7 +26,7 @@
         $dbName = $_SESSION['dbName'];
 
         $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
-        $results = $conn->query("SELECT * FROM Team");
+        $results = $conn->query("SELECT * FROM Team ORDER BY TeamNumber");
 
         $teams = array();
         while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
